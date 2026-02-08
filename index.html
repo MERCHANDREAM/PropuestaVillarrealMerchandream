@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merchandream x Villarreal CF | Muñecos Oficiales Personalizados</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'villarreal-yellow': '#FFED00',
+                        'villarreal-blue': '#005187',
+                        'villarreal-dark': '#003366'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap');
+        body { font-family: 'Montserrat', sans-serif; }
+        .gradient-villarreal { background: linear-gradient(135deg, #FFED00 0%, #FFB900 30%, #005187 70%, #003366 100%); }
+        .glass-effect { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(255, 237, 0, 0.3); }
+        
+        /* Modal Styles */
+        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); }
+        .modal.active { display: flex; align-items: center; justify-content: center; }
+        .modal-content { position: relative; max-width: 90%; max-height: 90vh; }
+        .carousel-img { max-height: 80vh; width: auto; margin: 0 auto; display: block; }
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: none; color: white; font-size: 2rem; padding: 1rem 1.5rem; cursor: pointer; transition: all 0.3s; border-radius: 50%; }
+        .carousel-btn:hover { background: rgba(255,255,255,0.4); transform: translateY(-50%) scale(1.1); }
+        .carousel-btn.prev { left: 2rem; }
+        .carousel-btn.next { right: 2rem; }
+        .close-modal { position: absolute; top: 2rem; right: 2rem; font-size: 3rem; color: white; cursor: pointer; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+        .close-modal:hover { background: rgba(255,255,255,0.4); transform: rotate(90deg); }
+
+        /* Floating Submarine Animation */
+        @keyframes float-submarine {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) translateX(10px) rotate(2deg); }
+            50% { transform: translateY(-25px) translateX(-5px) rotate(-2deg); }
+            75% { transform: translateY(-20px) translateX(8px) rotate(1deg); }
+        }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .floating-element {
+            position: absolute;
+            animation: float-submarine 7s ease-in-out infinite;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        .spinning-ball {
+            animation: spin-slow 25s linear infinite;
+        }
+
+        /* Responsive Title Fix */
+        @media (max-width: 640px) {
+            .hero-title { font-size: 2.5rem !important; line-height: 1.2 !important; }
+            .hero-subtitle { font-size: 1.1rem !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white">
+
+    <!-- Hero Section -->
+    <section class="gradient-villarreal min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Animated Elements -->
+        <div class="floating-element" style="top: 15%; left: 8%; font-size: 7rem;">🚢</div>
+        <div class="floating-element spinning-ball" style="top: 65%; right: 12%; font-size: 6rem; animation-delay: 2s;">⚽</div>
+        <div class="floating-element" style="top: 35%; right: 18%; font-size: 5rem; animation-delay: 1.5s;">🏆</div>
+        
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-villarreal-yellow rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-villarreal-blue rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 sm:px-6 py-12 sm:py-20 relative z-10">
+            <div class="text-center max-w-5xl mx-auto">
+                <h1 class="hero-title text-4xl sm:text-5xl md:text-7xl font-black mb-4 sm:mb-6 leading-tight text-slate-900">
+                    Merchandream <span class="text-villarreal-blue">x</span> Villarreal CF
+                </h1>
+                <p class="hero-subtitle text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-slate-800 font-semibold px-2">
+                    Muñecos Oficiales del Submarino Amarillo
+                </p>
+                <p class="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 text-slate-700 max-w-3xl mx-auto px-4 font-medium">
+                    Desde La Cerámica hasta Europa, el Villarreal ha escrito historia en verde y amarillo. 
+                    Creamos Lucky Dolls que inmortalizan a tus leyendas groguetes, 
+                    convirtiendo cada figura en un símbolo de orgullo y pasión castellonense.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4">
+                    <a href="#productos" class="bg-villarreal-blue hover:bg-villarreal-dark text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transition-all hover:scale-105 shadow-2xl">
+                        Ver Catálogo de Productos
+                    </a>
+                    <a href="#contacto" class="bg-slate-900 hover:bg-villarreal-yellow hover:text-slate-900 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transition-all border-2 border-slate-900">
+                        Solicitar Presupuesto
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Section -->
+    <section id="productos" class="py-16 sm:py-24 bg-slate-900">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-4">
+                Nuestros Productos <span class="text-villarreal-yellow">Premium</span>
+            </h2>
+            <p class="text-center text-gray-400 mb-4 sm:mb-6 text-base sm:text-lg max-w-3xl mx-auto px-4">
+                Desde muñecos coleccionables hasta réplicas a tamaño real de tus ídolos
+            </p>
+            <p class="text-center text-yellow-400 font-semibold mb-12 sm:mb-16 text-sm sm:text-base px-4">
+                💰 Todos los precios son NETOS (sin IVA)
+            </p>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                
+                <!-- 8 cm -->
+                <div class="glass-effect rounded-2xl p-6 sm:p-8 hover-lift cursor-pointer" onclick="openCarousel('8cm')">
+                    <div class="bg-villarreal-yellow rounded-xl p-4 mb-6 h-48 flex items-center justify-center overflow-hidden">
+                        <img src="assets/luckyDolls/8cm/Pic01.png" alt="8cm Lucky Doll" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-3">Lucky Doll 8 cm</h3>
+                    <p class="text-sm sm:text-base text-gray-400 mb-4">Ideal para coleccionables del club</p>
+                    <div class="border-t border-gray-700 pt-4">
+                        <p class="text-2xl sm:text-3xl font-black text-villarreal-yellow mb-1">5,25€ <span class="text-xs sm:text-sm text-gray-500">/unidad</span></p>
+                        <p class="text-xs text-yellow-400 mb-2">+ IVA</p>
+                        <p class="text-xs sm:text-sm text-gray-400">Pedido mínimo: 100 unidades</p>
+                    </div>
+                    <p class="text-xs text-center mt-4 text-villarreal-yellow">👆 Click para ver más fotos</p>
+                </div>
+
+                <!-- 15 cm -->
+                <div class="glass-effect rounded-2xl p-6 sm:p-8 hover-lift cursor-pointer" onclick="openCarousel('15cm')">
+                    <div class="bg-villarreal-blue rounded-xl p-4 mb-6 h-48 flex items-center justify-center overflow-hidden">
+                        <img src="assets/luckyDolls/14cm/Pic03.png" alt="15cm Lucky Doll" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-3">Lucky Doll 15 cm</h3>
+                    <p class="text-sm sm:text-base text-gray-400 mb-4">Ideal para merchandising en tienda oficial y eventos especiales</p>
+                    <div class="border-t border-gray-700 pt-4">
+                        <p class="text-2xl sm:text-3xl font-black text-villarreal-yellow mb-1">9,86€ <span class="text-xs sm:text-sm text-gray-500">/unidad</span></p>
+                        <p class="text-xs text-yellow-400 mb-2">+ IVA</p>
+                        <p class="text-xs sm:text-sm text-gray-400">Pedido mínimo: 100 unidades</p>
+                    </div>
+                    <p class="text-xs text-center mt-4 text-villarreal-yellow">👆 Click para ver más fotos</p>
+                </div>
+
+                <!-- 18 cm -->
+                <div class="glass-effect rounded-2xl p-6 sm:p-8 hover-lift border-2 border-villarreal-yellow cursor-pointer relative" onclick="openCarousel('18cm')">
+                    <div class="absolute top-4 right-4 bg-villarreal-yellow text-slate-900 px-3 py-1 rounded-full text-xs font-bold">
+                        MÁS VENDIDO
+                    </div>
+                    <div class="bg-villarreal-yellow rounded-xl p-4 mb-6 h-48 flex items-center justify-center overflow-hidden">
+                        <img src="assets/luckyDolls/18cm/Pic02.png" alt="18cm Lucky Doll" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-3">Lucky Doll 18 cm</h3>
+                    <p class="text-sm sm:text-base text-gray-400 mb-4">El formato estrella para coleccionistas y aficionados</p>
+                    <div class="border-t border-gray-700 pt-4">
+                        <p class="text-2xl sm:text-3xl font-black text-villarreal-yellow mb-1">11,20€ <span class="text-xs sm:text-sm text-gray-500">/unidad</span></p>
+                        <p class="text-xs text-yellow-400 mb-2">+ IVA</p>
+                        <p class="text-xs sm:text-sm text-gray-400">Pedido mínimo: 100 unidades</p>
+                    </div>
+                    <p class="text-xs text-center mt-4 text-villarreal-yellow">👆 Click para ver más fotos</p>
+                </div>
+
+                <!-- 18 cm con Sonido -->
+                <div class="glass-effect rounded-2xl p-6 sm:p-8 hover-lift cursor-pointer" onclick="openCarousel('18cmSonido')">
+                    <div class="bg-gradient-to-br from-villarreal-yellow to-villarreal-blue rounded-xl p-4 mb-6 h-48 flex items-center justify-center overflow-hidden">
+                        <img src="assets/luckyDolls/18cmSonido/Pic01.png" alt="18cm Sonido Lucky Doll" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-3">Lucky Doll 18 cm + Sonido</h3>
+                    <p class="text-sm sm:text-base text-gray-400 mb-4">Con himno del Villarreal o cánticos personalizados</p>
+                    <div class="border-t border-gray-700 pt-4">
+                        <p class="text-2xl sm:text-3xl font-black text-villarreal-yellow mb-1">14,90€ <span class="text-xs sm:text-sm text-gray-500">/unidad</span></p>
+                        <p class="text-xs text-yellow-400 mb-2">+ IVA</p>
+                        <p class="text-xs sm:text-sm text-gray-400">Pedido mínimo: 100 unidades</p>
+                    </div>
+                    <p class="text-xs text-center mt-4 text-villarreal-yellow">👆 Click para ver más fotos</p>
+                </div>
+
+                <!-- 40 cm -->
+                <div class="glass-effect rounded-2xl p-6 sm:p-8 hover-lift cursor-pointer" onclick="openCarousel('40cm')">
+                    <div class="bg-slate-800 rounded-xl p-4 mb-6 h-48 flex items-center justify-center overflow-hidden">
+                        <img src="assets/luckyDolls/40cm/Pic01.png" alt="40cm Lucky Doll" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-3">Lucky Doll 40 cm</h3>
+                    <p class="text-sm sm:text-base text-gray-400 mb-4">Edición premium para palcos VIP y regalos institucionales</p>
+                    <div class="border-t border-gray-700 pt-4">
+                        <p class="text-2xl sm:text-3xl font-black text-villarreal-yellow mb-1">75,00€ <span class="text-xs sm:text-sm text-gray-500">/unidad</span></p>
+                        <p class="text-xs text-yellow-400 mb-2">+ IVA</p>
+                        <p class="text-xs sm:text-sm text-gray-400">Pedido mínimo: 50 unidades</p>
+                    </div>
+                    <p class="text-xs text-center mt-4 text-villarreal-yellow">👆 Click para ver más fotos</p>
+                </div>
+
+                <!-- Tamaño Real -->
+                <div class="glass-effect rounded-2xl p-6 sm:p-8 hover-lift bg-gradient-to-br from-slate-900 to-villarreal-blue border-2 border-villarreal-yellow cursor-pointer relative" onclick="openCarousel('real')">
+                    <div class="absolute top-4 right-4 bg-villarreal-yellow text-slate-900 px-3 py-1 rounded-full text-xs font-bold">
+                        EXCLUSIVO
+                    </div>
+                    <div class="bg-slate-950 rounded-xl p-4 mb-6 h-48 flex items-center justify-center overflow-hidden">
+                        <img src="assets/luckyDolls/Real/Pic01.png" alt="Tamaño Real" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-3">Réplica Tamaño Real</h3>
+                    <p class="text-sm sm:text-base text-gray-400 mb-4">Para museo del club, hall del estadio o activaciones especiales</p>
+                    <div class="border-t border-gray-700 pt-4">
+                        <p class="text-2xl sm:text-3xl font-black text-villarreal-yellow mb-1">3.900€ <span class="text-xs sm:text-sm text-gray-500">/unidad</span></p>
+                        <p class="text-xs text-yellow-400 mb-2">+ IVA</p>
+                        <p class="text-xs sm:text-sm text-gray-400">Disponible desde 1 unidad</p>
+                    </div>
+                    <p class="text-xs text-center mt-4 text-villarreal-yellow">👆 Click para ver más fotos</p>
+                </div>
+
+                <!-- Vintage -->
+                <div class="glass-effect rounded-2xl p-6 sm:p-8 hover-lift col-span-full cursor-pointer" onclick="openCarousel('vintage')">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="bg-amber-900 rounded-xl p-4 h-64 flex items-center justify-center overflow-hidden">
+                            <img src="assets/luckyDolls/Vintages/Pic01.png" alt="Vintage Collection" class="h-full object-contain">
+                        </div>
+                        <div>
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">Colección Vintage</h3>
+                            <p class="text-sm sm:text-base text-gray-300 mb-6 lg:text-lg">
+                                Homenajea las leyendas groguetes con diseños retro que evocan las épocas doradas del Submarino. 
+                                Perfectos para aniversarios del club o campañas nostálgicas de La Cerámica.
+                            </p>
+                            <div class="flex gap-6 flex-wrap">
+                                <div>
+                                    <p class="text-xl sm:text-2xl font-black text-villarreal-yellow">7,25€</p>
+                                    <p class="text-xs text-yellow-400">+ IVA</p>
+                                    <p class="text-xs sm:text-sm text-gray-400">100 unidades</p>
+                                </div>
+                                <div>
+                                    <p class="text-xl sm:text-2xl font-black text-villarreal-yellow">6,72€</p>
+                                    <p class="text-xs text-yellow-400">+ IVA</p>
+                                    <p class="text-xs sm:text-sm text-gray-400">250 unidades</p>
+                                </div>
+                            </div>
+                            <p class="text-xs text-center mt-6 text-villarreal-yellow">👆 Click para ver más fotos</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Tiempos de Entrega -->
+    <section class="py-16 sm:py-24 bg-slate-950">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-12 sm:mb-16">
+                Proceso de <span class="text-villarreal-yellow">Producción</span>
+            </h2>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="grid sm:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="bg-villarreal-yellow text-slate-900 w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl sm:text-4xl font-black">
+                            1
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-bold mb-4">Molde Personalizado</h3>
+                        <p class="text-4xl sm:text-5xl font-black text-villarreal-yellow mb-2">15 días</p>
+                        <p class="text-sm sm:text-base text-gray-400">Diseño y validación del prototipo exclusivo para tu club</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-villarreal-blue w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl sm:text-4xl font-black">
+                            2
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-bold mb-4">Fabricación</h3>
+                        <p class="text-4xl sm:text-5xl font-black text-villarreal-yellow mb-2">45-60 días</p>
+                        <p class="text-sm sm:text-base text-gray-400">Producción con control de calidad en cada fase</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-villarreal-yellow text-slate-900 w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl sm:text-4xl font-black">
+                            3
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-bold mb-4">Transporte</h3>
+                        <p class="text-4xl sm:text-5xl font-black text-villarreal-yellow mb-2">25 días</p>
+                        <p class="text-sm sm:text-base text-gray-400">Envío seguro hasta Villarreal</p>
+                    </div>
+                </div>
+                
+                <div class="mt-12 sm:mt-16 glass-effect rounded-2xl p-6 sm:p-8 text-center">
+                    <p class="text-xl sm:text-2xl font-bold mb-4">⏱️ Tiempo Total Estimado</p>
+                    <p class="text-4xl sm:text-6xl font-black text-villarreal-yellow">85-100 días</p>
+                    <p class="text-sm sm:text-base text-gray-400 mt-4">Ideal para planificar campañas de temporada, Europa League o aniversarios</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="contacto" class="gradient-villarreal py-16 sm:py-24">
+        <div class="container mx-auto px-4 sm:px-6 text-center max-w-4xl">
+            <h2 class="text-3xl sm:text-4xl md:text-6xl font-black mb-6 sm:mb-8 text-slate-900">
+                ¿Listo para Crear Historia con Merchandream?
+            </h2>
+            <p class="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-12 text-slate-800 px-4 font-semibold">
+                Convierte a tus leyendas groguetes en iconos coleccionables que vivirán en el corazón de la afición
+            </p>
+            
+            <!-- ⚠️ PARA CAMBIAR EL NÚMERO DE TELÉFONO: 
+                 Modifica el número "605195744" en la línea del href de WhatsApp -->
+            
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4">
+                <a href="mailto:info@merchandream.com?subject=Presupuesto%20Villarreal%20CF&body=Hola,%20quiero%20solicitar%20un%20presupuesto%20personalizado%20para%20Lucky%20Dolls%20oficiales." 
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="bg-villarreal-blue hover:bg-villarreal-dark text-white font-bold py-4 sm:py-5 px-8 sm:px-10 rounded-full text-lg sm:text-xl transition-all hover:scale-105 shadow-2xl">
+                    📧 Solicitar Presupuesto Personalizado
+                </a>
+                <a href="https://wa.me/605195744?text=Hola,%20quiero%20información%20sobre%20muñecos%20oficiales%20para%20Villarreal%20CF" 
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="bg-slate-900 hover:bg-villarreal-yellow hover:text-slate-900 text-white font-bold py-4 sm:py-5 px-8 sm:px-10 rounded-full text-lg sm:text-xl transition-all border-2 border-slate-900">
+                    💬 Contactar con Merchandream
+                </a>
+            </div>           
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-8 sm:py-12 border-t border-slate-800">
+        <div class="container mx-auto px-4 sm:px-6 text-center text-gray-500">
+            <p class="mb-4 text-sm sm:text-base">&copy; 2026 Merchandream. Todos los derechos reservados.</p>
+            <p class="text-xs sm:text-sm">Villarreal CF es una marca registrada. Diseños bajo licencia oficial.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Carousel -->
+    <div id="carouselModal" class="modal">
+        <span class="close-modal" onclick="closeCarousel()">&times;</span>
+        <button class="carousel-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+        <div class="modal-content">
+            <img id="carouselImage" class="carousel-img" src="" alt="Lucky Doll">
+            <p class="text-center text-white mt-4 text-sm sm:text-base" id="carouselCounter"></p>
+        </div>
+        <button class="carousel-btn next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <script>
+        // Carousel Data
+        const carouselData = {
+            '8cm': [
+                'assets/luckyDolls/8cm/Pic01.png',
+                'assets/luckyDolls/8cm/Pic02.png',
+                'assets/luckyDolls/8cm/Pic03.png',
+                'assets/luckyDolls/8cm/Pic04.png',
+                'assets/luckyDolls/8cm/Pic05.png',
+                'assets/luckyDolls/8cm/Pic06.png',
+                'assets/luckyDolls/8cm/Pic07.png'
+            ],
+            '15cm': [
+                'assets/luckyDolls/14cm/Pic03.png',
+                'assets/luckyDolls/14cm/Pic05.png',
+                'assets/luckyDolls/14cm/Pic07.png'
+            ],
+            '18cm': [
+                'assets/luckyDolls/18cm/Pic02.png',
+                'assets/luckyDolls/18cm/Pic03.png',
+                'assets/luckyDolls/18cm/Pic04.png'
+            ],
+            '18cmSonido': [
+                'assets/luckyDolls/18cmSonido/Pic01.png'
+            ],
+            '40cm': [
+                'assets/luckyDolls/40cm/Pic01.png'
+            ],
+            'real': [
+                'assets/luckyDolls/Real/Pic01.png'
+            ],
+            'vintage': [
+                'assets/luckyDolls/Vintages/Pic01.png',
+                'assets/luckyDolls/Vintages/Pic02.png',
+                'assets/luckyDolls/Vintages/Pic03.png',
+                'assets/luckyDolls/Vintages/Pic04.png',
+                'assets/luckyDolls/Vintages/Pic05.png',
+                'assets/luckyDolls/Vintages/Pic06.png',
+                'assets/luckyDolls/Vintages/Pic07.png',
+                'assets/luckyDolls/Vintages/Pic08.png',
+                'assets/luckyDolls/Vintages/Pic09.png',
+                'assets/luckyDolls/Vintages/Pic10.png',
+                'assets/luckyDolls/Vintages/Pic11.png',
+                'assets/luckyDolls/Vintages/Pic12.png',
+                'assets/luckyDolls/Vintages/Pic13.png',
+                'assets/luckyDolls/Vintages/Pic14.png',
+                'assets/luckyDolls/Vintages/Pic15.png',
+                'assets/luckyDolls/Vintages/Pic16.png',
+                'assets/luckyDolls/Vintages/Pic17.png'
+            ]
+        };
+
+        let currentCategory = '';
+        let currentIndex = 0;
+
+        function openCarousel(category) {
+            currentCategory = category;
+            currentIndex = 0;
+            const modal = document.getElementById('carouselModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            updateCarousel();
+        }
+
+        function closeCarousel() {
+            const modal = document.getElementById('carouselModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeSlide(direction) {
+            const images = carouselData[currentCategory];
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            if (currentIndex >= images.length) currentIndex = 0;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const images = carouselData[currentCategory];
+            const img = document.getElementById('carouselImage');
+            const counter = document.getElementById('carouselCounter');
+            img.src = images[currentIndex];
+            counter.textContent = `${currentIndex + 1} / ${images.length}`;
+        }
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeCarousel();
+        });
+
+        // Close modal on background click
+        document.getElementById('carouselModal').addEventListener('click', function(e) {
+            if (e.target === this) closeCarousel();
+        });
+
+        // Arrow key navigation
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('carouselModal');
+            if (modal.classList.contains('active')) {
+                if (e.key === 'ArrowLeft') changeSlide(-1);
+                if (e.key === 'ArrowRight') changeSlide(1);
+            }
+        });
+    </script>
+
+</body>
+</html>
